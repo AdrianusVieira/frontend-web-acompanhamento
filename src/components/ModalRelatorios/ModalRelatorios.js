@@ -150,12 +150,7 @@ function ModalRelatorios(props) {
         }
       });
 
-      const totalGeral =
-        +totalCompra +
-        +totalVenda +
-        +totalCrescimento +
-        +totalDecaimento +
-        +totalRendimento;
+      const totalGeral = +totalCrescimento - +totalDecaimento;
 
       const aux = new Date();
       const RelatorioCompra = {
@@ -239,7 +234,7 @@ function ModalRelatorios(props) {
       movimentacoes = await managerService.pegarMovimentacaosByInvestimento(
         props.id_investimento
       );
-    } 
+    }
     var relatoriosParciais = [];
     movimentacoes?.forEach((value) => {
       if (value.tipo === "RELATORIO") {
