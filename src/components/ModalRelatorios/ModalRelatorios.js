@@ -152,6 +152,8 @@ function ModalRelatorios(props) {
 
       const totalGeral = +totalCrescimento - +totalDecaimento;
 
+      const aux = new Date();
+
       const RelatorioGeral = {
         id_investimento: props.id_investimento,
         data_hora: aux,
@@ -161,7 +163,6 @@ function ModalRelatorios(props) {
       };
 
       await managerService.criarMovimentacao(RelatorioGeral);
-      const aux = new Date();
       const RelatorioCompra = {
         id_investimento: props.id_investimento,
         data_hora: aux,
@@ -202,6 +203,8 @@ function ModalRelatorios(props) {
       await managerService.criarMovimentacao(RelatorioCrescimento);
       await managerService.criarMovimentacao(RelatorioDecaimento);
       await managerService.criarMovimentacao(RelatorioRendimento);
+
+      
     }
     toast.success("Relatorio gerado com sucesso!");
     setGruposRelatorios([]);
